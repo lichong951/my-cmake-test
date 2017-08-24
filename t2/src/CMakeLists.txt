@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.6.1)
 
 # SET 指令的语法是:
 # SET(VAR [VALUE] [CACHE TYPE DOCSTRING [FORCE]])
