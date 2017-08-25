@@ -8,7 +8,7 @@ SET(LIBHELLO_SRC hello.c)
 #EXCLUDE_FROM_ALL 参数的意思是这个库不会被默认构建，除非有其他的组件依赖或者手 工构建。
 ADD_LIBRARY(hello SHARED ${LIBHELLO_SRC})
 
-#STATIC，静态库
+#STATIC，静态库 静态库名字跟动态库名字应该是一致的，只不过后缀是.a 罢了
 ADD_LIBRARY(hello_static STATIC ${LIBHELLO_SRC})
 
 #这条指令可以用来设置输出的名称，对于动态库，还可以用来指定动态库版本和 API 版本
@@ -27,5 +27,12 @@ SET_TARGET_PROPERTIES(hello_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 # VERSION 指代动态库版本，SOVERSION 指代 API 版本
 SET_TARGET_PROPERTIES(hello PROPERTIES VERSION 1.2 SOVERSION 1)
+
+#==================================六.安装共享库和头文件
+INSTALL(TARGETS hello hello_static
+				LIBRARY DESTINATION lib
+				ARCHIVE DESTINATION lib)
+
+INSTALL(FILES hello.h DESTINATION include/hello)
 
 
