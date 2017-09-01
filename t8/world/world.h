@@ -1,0 +1,2 @@
+extern void WorldPrint(void);
+
