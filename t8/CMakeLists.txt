@@ -11,15 +11,15 @@ aux_source_directory(. DIRSRCS)
 
 # Add header file include directories
 
-include_directories(./ ./hello ./world)
+include_directories(./ ./hello ./world ./hs)
 
 # Add block directories
 add_subdirectory(hello)
 add_subdirectory(world)
 
 # Target
-#add_executable(hello_target ${DIRSRCS})
-add_library(hello_target ${DIRSRCS})
+add_executable(hello_target ${DIRSRCS})
+#add_library(hello_target ${DIRSRCS})
 
 target_link_libraries(hello_target hello_lib world_lib)
 
